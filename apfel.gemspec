@@ -6,7 +6,7 @@ require "version"
 
 Gem::Specification.new do |s|
   s.name        = "apfel"
-  s.version     = Apfel::VERSION
+  s.version     = "0.0.6"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Ryan Levick"]
   s.email       = ["ryan.levick@gmail.com"]
