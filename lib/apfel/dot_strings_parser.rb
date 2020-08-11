@@ -15,8 +15,16 @@ module Apfel
       state = KEY
       current_comment = nil
       comments_for_keys = {}
+      cached = ""
       @read_file.each do |content_line|
-        current_line = Line.new(content_line)
+          current_line = nil
+          begin
+              current_line = Line.new("#{cached}#{content_line}")
+              cached = ""
+          rescue
+            cached << "#{content_line}\n"
+            next
+          end
         next if current_line.empty_line? && current_line.in_comment == false
 
         #State machine to parse the comments
